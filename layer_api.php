@@ -105,21 +105,8 @@ Class LayerApi{
         $time_stamp = time();
         unset($body['udf']);
 
-        if(empty($body)){
-
-            $token_string = $time_stamp.strtoupper($method);
-
-        } else {
-
-            $token_string = $time_stamp.strtoupper($method).json_encode($body);
-
-        }
-
-        $token = hash_hmac("sha256",$token_string,$this->secret_key);
-
         return [
-            'Authorization'  =>  'Bearer '.$this->access_key.':'.$token,
-            'X-O-Timestamp'  =>  $time_stamp,
+            'Authorization'  =>  'Bearer '.$this->access_key.':'.$this->secret_key,
             'Access-Key'    => $this->access_key
         ];
 
