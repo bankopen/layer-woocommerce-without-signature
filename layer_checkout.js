@@ -1,12 +1,3 @@
-/*
- * Plugin Name: Layer Payment Gateway
- * Plugin URI: https://open.money/
- * Description: Open's Layer Payment Gateway integration for WooCommerce
- * Version: 1.0.1
- * Author: Openers
- * Author URI: https://open.money/
-*/
-
 if(document.getElementById("LayerPayNow")){
 
     if(layer_params.retry === "0"){

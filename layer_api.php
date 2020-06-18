@@ -1,9 +1,7 @@
 <?php
 /*
- * Plugin Name: Layer Payment Gateway
- * Plugin URI: https://open.money/
- * Description: Open's Layer Payment Gateway integration for WooCommerce
- * Version: 1.0.1
+ * Class File: Open Payment Gateway Class
+ * Version: 1.0.2
  * Author: Openers
  * Author URI: https://open.money/
 */
@@ -106,8 +104,7 @@ Class LayerApi{
         unset($body['udf']);
 
         return [
-            'Authorization'  =>  'Bearer '.$this->access_key.':'.$this->secret_key,
-            'Access-Key'    => $this->access_key
+            'Authorization'  =>  'Bearer '.$this->access_key.':'.$this->secret_key
         ];
 
     }
