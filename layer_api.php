@@ -100,8 +100,9 @@ Class LayerApi{
 
     function build_auth($body,$method){
 
-        $time_stamp = time();
-        unset($body['udf']);
+        
+
+        $token = hash_hmac("sha256",$token_string,$this->secret_key);
 
         return [
             'Authorization'  =>  'Bearer '.$this->access_key.':'.$this->secret_key
