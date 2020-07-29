@@ -309,7 +309,7 @@ function layer_init_gateway_class() {
 
                     }
 
-                    if($payment_token_data['amount'] != $order->calculate_totals()){
+                    if($payment_token_data['amount'] != $order->get_total()){
 
                         throw new Exception("Layer: an amount mismatch occurred");
 
