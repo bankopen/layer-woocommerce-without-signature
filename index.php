@@ -224,6 +224,7 @@ function layer_init_gateway_class() {
                 'name'  => $order->get_formatted_billing_full_name(),
                 'email_id' => $order->get_billing_email(),
                 'contact_number' => $order->get_billing_phone(),
+		'mtx' =>  $order->get_id(), 
                 'udf'   => [
                     'woocommerce_order_id'  => $order->get_id(),
                     'woocommerce_order_key'  => $order->get_order_key(),
