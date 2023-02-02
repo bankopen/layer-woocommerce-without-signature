@@ -100,6 +100,7 @@ function layer_init_gateway_class() {
             $this->has_fields = false;
             $this->method_title = 'Open Payment Gateway (Layer)';
             $this->method_description = 'Layer Payment from Open';
+	    $this->layer_params = [];
 
             $this->init_form_fields();
 
@@ -185,6 +186,7 @@ function layer_init_gateway_class() {
             }
 
             wp_register_script( 'layer_checkout_js', plugin_dir_url(__FILE__)."layer_checkout.js" );
+	    wp_localize_script( 'layer_checkout_js','layer_params',$this->layer_params );
             wp_enqueue_script( 'layer_checkout_js',"","","",true);
 
         }
@@ -316,14 +318,11 @@ function layer_init_gateway_class() {
 
                     }
 
-                    $jsdata = array(
+                    $this->layer_params = array(
                         'payment_token_id' => $payment_token_data['id'],
                         'accesskey' => $this->access_key,
                         'retry' => $is_retry,
                     );
-
-
-                    wp_localize_script('layer_checkout_js','layer_params',$jsdata);
 
 
                     $hash = $this->create_hash(array(
