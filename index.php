@@ -100,7 +100,8 @@ function layer_init_gateway_class() {
             $this->has_fields = false;
             $this->method_title = 'Open Payment Gateway (Layer)';
             $this->method_description = 'Layer Payment from Open';
-	    $this->layer_params = [];	
+	          $this->layer_params = [];	
+
 
             $this->init_form_fields();
 
@@ -323,6 +324,7 @@ function layer_init_gateway_class() {
                         'accesskey' => $this->access_key,
                         'retry' => $is_retry,
                     );
+
 
                     $hash = $this->create_hash(array(
                         'layer_pay_token_id'    => $payment_token_data['id'],
